@@ -1,0 +1,126 @@
+.homeheader {
+  background-size: cover;
+
+  .navbar-nav {
+    font-size: 2rem;
+  }
+
+  .line-1 {
+    position: relative;
+    border-right: 2px solid rgba(0, 0, 0, 0.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);
+    margin-left: 65px;
+    margin-top: 20px;
+  }
+
+  .summary {
+    margin-left: 70px;
+    font-size: 20px;
+  }
+
+  .name {
+    margin-left: 65px;
+  }
+
+  .anim-typewriter {
+    animation: typewriter 4s steps(48) 1s 1 normal both,
+      blinkTextCursor 500ms steps(48) infinite normal;
+  }
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 14em;
+    }
+  }
+  @keyframes blinkTextCursor {
+    from {
+      border-right-color: rgba(0, 0, 0, 0.75);
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
+
+  form {
+    padding-bottom: 100px;
+    padding-top: 48px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .homeheader {
+    background: url("https://res.cloudinary.com/dcl67luxn/image/upload/v1543874348/Web_1920_1.svg")
+      no-repeat;
+    height: 1080px;
+
+    .nav-item,
+    .navbar-nav {
+      margin: 20px;
+    }
+    .name {
+      font-size: 6.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1919px) {
+  .homeheader {
+    background: url("https://res.cloudinary.com/dcl67luxn/image/upload/v1543874529/Web_1366_2.svg")
+      no-repeat;
+    height: 768px;
+    .nav-item,
+    .navbar-nav {
+      margin: 20px;
+    }
+    .name {
+      font-size: 6.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1365px) {
+  .homeheader {
+    background: url("https://res.cloudinary.com/dcl67luxn/image/upload/v1543874535/Web_1280_1.svg")
+      no-repeat;
+    height: 800px;
+    .nav-item,
+    .navbar-nav {
+      margin: 20px;
+    }
+    .name {
+      font-size: 6.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .homeheader {
+    background: url("https://res.cloudinary.com/dcl67luxn/image/upload/v1543874570/iPad_1.svg")
+      no-repeat;
+    height: 1024px;
+    .name {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .homeheader {
+    background: url("https://res.cloudinary.com/dcl67luxn/image/upload/v1543874575/iPhone_6-7-8_1.svg")
+      no-repeat;
+    height: 736px;
+    .name {
+      font-size: 3.5rem;
+      margin-left: 20px !important;
+    }
+    .line-1 {
+      margin-left: 20px !important;
+    }
+  }
+}
