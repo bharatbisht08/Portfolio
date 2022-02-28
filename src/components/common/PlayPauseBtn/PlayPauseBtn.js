@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useAudio } from "../../../utils/useAudio";
+import React, { useEffect, useMemo, useState } from "react";
+// import { useAudio } from "../../../utils/useAudio";
 // import song from "../../../assets/audio/list.m4a";
 import song1 from "../../../assets/audio/1.mpeg";
 import song2 from "../../../assets/audio/2.mpeg";
@@ -15,6 +15,7 @@ import song11 from "../../../assets/audio/11.mpeg";
 import song12 from "../../../assets/audio/12.mpeg";
 import song13 from "../../../assets/audio/13.mpeg";
 import song14 from "../../../assets/audio/14.mpeg";
+import song15 from "../../../assets/audio/1.wav";
 
 import "./PlayPauseBtn.scss";
 import { HiVolumeOff, HiVolumeUp } from "react-icons/hi";
@@ -35,27 +36,42 @@ const PlayPauseBtn = () => {
     song12,
     song13,
     song14,
+    song15,
   ];
   const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
-  const [playMusic, setPlayMusic] = useState(random(0, 13));
-  const songChange = () => {
-    if (playMusic + 1 >= 13) {
-      setPlayMusic(playMusic + 1);
+
+  const [playing, setPlaying] = useState(false);
+
+  const [audio, setAudio] = useState(new Audio(songs[14]));
+
+  useEffect(() => {
+    setPlaying(false);
+  }, []);
+
+  useMemo(() => {
+    playing ? audio.play() : audio.pause();
+  }, [playing]);
+
+  const toggle = (change) => {
+    if (change) {
+      console.log("change", change);
+      setAudio(new Audio(songs[random(0, 13)]));
+      setPlaying(true);
     } else {
-      setPlayMusic(0);
+      setPlaying(!playing);
     }
-    console.log("run");
   };
-  const [playing, toggle] = useAudio(songs[playMusic], songChange);
-  // audio.onended = function () {
-  //   console.log('sadsad');
-  //   setPlayMusic(random(0, 13));
-  // };
+
+  audio.onended = () => {
+    setPlaying(false);
+    toggle(true);
+  };
+
   return (
     <div className="backgroundAudio">
-      <div onClick={toggle}>
+      <div onClick={() => toggle(false)}>
         {playing ? <HiVolumeUp size={30} /> : <HiVolumeOff size={30} />}
       </div>
     </div>

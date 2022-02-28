@@ -1,0 +1,31 @@
+.Cards {
+    .card {
+      border: 1px solid #b3b3ff;
+      margin-bottom: 20px;
+      transition: border 0.1s, transform 0.3s;
+      &:hover {
+        border: 1px solid #1a1aff;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+        cursor: pointer;
+      }
+    }
+  
+    .card .card-body .card-title {
+      color: #1a1aff;
+    }
+  
+    .card .card-img-top:hover {
+      opacity: 0.6;
+    }
+  
+    .card-p {
+      color: #b3b3ff;
+    }
+  
+    .card-p .icon {
+      color: #1a1aff;
+      margin-right: 8px;
+    }
+  }
+  

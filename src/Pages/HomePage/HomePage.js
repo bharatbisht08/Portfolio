@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import JourneyCard from "../../components/JourneyCard/JourneyCard";
 import HomeHeader from "../../components/HomeHeader/HomeHeader";
 import "./Homepage.scss";
+import DefaultModal from "../../components/common/DefaultModal/DefaultModal";
 
 const HomePage = () => {
+  const [modalShow, setModalShow] = useState(true);
   return (
     <>
       <HomeHeader />
+      <DefaultModal show={modalShow} onHide={() => setModalShow(false)} />
+      <JourneyCard />
       {/* <div id="about">
         <div className="container">
           <h1 className="text-center aboutHeading">About Me</h1>
